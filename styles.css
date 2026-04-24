@@ -1,10 +1,4 @@
-/* ============================================================
-   DISNEY WEBPAGE - PIXEL PERFECT
-   Methodology: BEM (Block__Element--Modifier)
-   Layout: CSS Grid + Flexbox
-   ============================================================ */
 
-/* ===================== RESET / BASE ===================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +6,7 @@
 }
 
 :root {
-  /* Colors */
+
   --color-white: #ffffff;
   --color-black: #000000;
   --color-text: #1a1a1a;
@@ -42,10 +36,8 @@
   --color-footer-bg: #ffffff;
   --color-footer-text: #222222;
 
-  /* Typography */
   --font-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Sizes */
   --max-width: 1200px;
 }
 
@@ -74,7 +66,6 @@ ul {
   list-style: none;
 }
 
-/* ===================== NAVBAR ===================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -158,7 +149,6 @@ ul {
   justify-content: center;
 }
 
-/* ===================== BANNER ===================== */
 .banner {
   position: relative;
   width: 100%;
@@ -243,7 +233,6 @@ ul {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* ===================== SHOP ===================== */
 .shop {
   background-color: var(--color-shop-bg);
   padding: 3rem 2rem;
@@ -302,7 +291,6 @@ ul {
   margin-top: auto;
 }
 
-/* ===================== DISNEY+ ===================== */
 .disney-plus {
   background-color: var(--color-disney-plus-bg);
   padding: 3rem 2rem;
@@ -351,7 +339,6 @@ ul {
   letter-spacing: 0.5px;
 }
 
-/* ===================== MOVIES ===================== */
 .movies {
   background-color: var(--color-movies-bg);
   padding: 3rem 2rem;
@@ -397,7 +384,6 @@ ul {
   color: var(--color-text-muted);
 }
 
-/* ===================== PARKS & TRAVEL ===================== */
 .parks {
   background-color: var(--color-parks-bg);
   padding: 0 2rem 3rem;
@@ -468,7 +454,6 @@ ul {
   margin-top: 0.5rem;
 }
 
-/* ===================== MORE (OFFERS) ===================== */
 .more {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -547,7 +532,6 @@ ul {
   line-height: 1.4;
 }
 
-/* ===================== FOOTER ===================== */
 .footer {
   background-color: var(--color-footer-bg);
   padding: 2rem 1rem 1.5rem;
@@ -595,11 +579,6 @@ ul {
   margin-top: 0.75rem;
 }
 
-/* ============================================================
-   RESPONSIVE DESIGN - MEDIA QUERIES
-   ============================================================ */
-
-/* ----- Tablet (<= 992px) ----- */
 @media (max-width: 992px) {
 
   .navbar {
@@ -662,7 +641,6 @@ ul {
 
 }
 
-/* ----- Mobile (<= 640px) ----- */
 @media (max-width: 640px) {
 
   .navbar {
