@@ -1,0 +1,777 @@
+/* ============================================================
+   DISNEY WEBPAGE - PIXEL PERFECT
+   Methodology: BEM (Block__Element--Modifier)
+   Layout: CSS Grid + Flexbox
+   ============================================================ */
+
+/* ===================== RESET / BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+
+  --color-banner-button: #e94b4b;
+  --color-banner-button-hover: #d13c3c;
+
+  --color-shop-bg: #6e5cb8;
+  --color-shop-card: #e6c84a;
+  --color-shop-card-text: #7a5a1a;
+
+  --color-disney-plus-bg: #0b5f6c;
+  --color-disney-plus-text: #ffffff;
+
+  --color-movies-bg: #ececec;
+  --color-movies-text: #333333;
+
+  --color-parks-bg: #ececec;
+  --color-park-card-bg: #ffffff;
+
+  --color-more-bg: #d9f2ea;
+  --color-more-title: #0b3d6b;
+  --color-more-button: #a06cd5;
+  --color-more-button-hover: #8b5bbf;
+
+  --color-footer-bg: #ffffff;
+  --color-footer-text: #222222;
+
+  /* Typography */
+  --font-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Sizes */
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid #eee;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar__logo-img {
+  width: 65px;
+  height: auto;
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.navbar__link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.navbar__link:hover {
+  opacity: 0.6;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar__login {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: 0.5px;
+}
+
+.navbar__login:hover {
+  opacity: 0.6;
+}
+
+.navbar__search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cfcfcf;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+
+.navbar__search-input {
+  border: none;
+  outline: none;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  width: 180px;
+  font-family: inherit;
+}
+
+.navbar__search-button {
+  background: transparent;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: #4a90e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================== BANNER ===================== */
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  background-image: url("images/banner-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+.banner__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 420px;
+  color: var(--color-white);
+}
+
+.banner__brand {
+  width: 90px;
+  filter: brightness(0) invert(1);
+}
+
+.banner__title {
+  width: 320px;
+  max-width: 100%;
+  margin-top: -0.5rem;
+}
+
+.banner__text {
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.banner__text em {
+  font-style: italic;
+}
+
+.banner__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 220px;
+}
+
+.banner__button {
+  display: block;
+  text-align: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.banner__button--primary {
+  background-color: var(--color-banner-button);
+  color: var(--color-white);
+  border: 2px solid var(--color-banner-button);
+}
+
+.banner__button--primary:hover {
+  background-color: var(--color-banner-button-hover);
+  border-color: var(--color-banner-button-hover);
+}
+
+.banner__button--secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.banner__button--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ===================== SHOP ===================== */
+.shop {
+  background-color: var(--color-shop-bg);
+  padding: 3rem 2rem;
+}
+
+.shop__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.shop-card {
+  background-color: var(--color-shop-card);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.shop-card__image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.shop-card__body {
+  padding: 1rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.shop-card__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-shop-card-text);
+}
+
+.shop-card__description {
+  font-size: 0.78rem;
+  color: var(--color-shop-card-text);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.shop-card__link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-shop-card-text);
+  text-decoration: underline;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+}
+
+/* ===================== DISNEY+ ===================== */
+.disney-plus {
+  background-color: var(--color-disney-plus-bg);
+  padding: 3rem 2rem;
+  color: var(--color-disney-plus-text);
+}
+
+.disney-plus__title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.disney-plus__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.disney-plus-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.disney-plus-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.disney-plus-card__text {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.disney-plus-card__link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: underline;
+  letter-spacing: 0.5px;
+}
+
+/* ===================== MOVIES ===================== */
+.movies {
+  background-color: var(--color-movies-bg);
+  padding: 3rem 2rem;
+}
+
+.movies__title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-movies-text);
+  margin-bottom: 2rem;
+}
+
+.movies__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-card__image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.movie-card__title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-movies-text);
+  line-height: 1.3;
+}
+
+.movie-card__date {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ===================== PARKS & TRAVEL ===================== */
+.parks {
+  background-color: var(--color-parks-bg);
+  padding: 0 2rem 3rem;
+}
+
+.parks__title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-movies-text);
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.parks__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.park-card {
+  background-color: var(--color-park-card-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.park-card__image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.park-card__body {
+  padding: 1.25rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.park-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.park-card__description {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.park-card__description em {
+  font-style: italic;
+}
+
+.park-card__link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: underline;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+/* ===================== MORE (OFFERS) ===================== */
+.more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  background-color: var(--color-more-bg);
+}
+
+.more__image {
+  background-image: url("images/more-background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.more__content {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.more__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-more-title);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.more__offer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.more__offer-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-more-title);
+}
+
+.more__offer-text {
+  font-size: 0.78rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.more__button {
+  display: inline-block;
+  background-color: var(--color-more-button);
+  color: var(--color-white);
+  padding: 0.65rem 2rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.more__button:hover {
+  background-color: var(--color-more-button-hover);
+}
+
+.more__disclaimer {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  max-width: 400px;
+  line-height: 1.4;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background-color: var(--color-footer-bg);
+  padding: 2rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.footer__logo {
+  width: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.footer__menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer__menu--top .footer__link {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.footer__menu--bottom .footer__link {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.footer__link {
+  color: var(--color-footer-text);
+  transition: opacity 0.2s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.6;
+}
+
+.footer__copyright {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================================ */
+
+/* ----- Tablet (<= 992px) ----- */
+@media (max-width: 992px) {
+
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar__left {
+    gap: 1.25rem;
+  }
+
+  .navbar__menu {
+    gap: 1rem;
+  }
+
+  .navbar__search-input {
+    width: 130px;
+  }
+
+  .banner {
+    padding: 2rem;
+    min-height: 440px;
+  }
+
+  .shop__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .disney-plus__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .disney-plus-card__image {
+    height: 140px;
+  }
+
+  .movies__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .parks__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .park-card__image {
+    height: 260px;
+  }
+
+  .more {
+    grid-template-columns: 1fr;
+  }
+
+  .more__image {
+    min-height: 260px;
+  }
+
+  .more__content {
+    padding: 2rem 1.5rem;
+  }
+
+}
+
+/* ----- Mobile (<= 640px) ----- */
+@media (max-width: 640px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar__left {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .navbar__menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .navbar__right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar__search-input {
+    width: 150px;
+  }
+
+  .banner {
+    padding: 1.5rem;
+    min-height: 400px;
+    background-position: right center;
+  }
+
+  .banner__content {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner__title {
+    width: 260px;
+  }
+
+  .banner__buttons {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .shop {
+    padding: 2rem 1rem;
+  }
+
+  .shop__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .disney-plus {
+    padding: 2rem 1rem;
+  }
+
+  .disney-plus__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .disney-plus-card__image {
+    height: 200px;
+  }
+
+  .movies {
+    padding: 2rem 1rem;
+  }
+
+  .movies__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .parks {
+    padding: 0 1rem 2rem;
+  }
+
+  .park-card__image {
+    height: 220px;
+  }
+
+  .more__content {
+    padding: 1.5rem 1rem;
+  }
+
+  .more__title {
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    padding: 1.5rem 0.75rem 1rem;
+  }
+
+  .footer__menu {
+    gap: 0.75rem 1rem;
+  }
+
+  .footer__menu--top .footer__link {
+    font-size: 0.7rem;
+  }
+
+  .footer__menu--bottom .footer__link {
+    font-size: 0.65rem;
+  }
+
+}
